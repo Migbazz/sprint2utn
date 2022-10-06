@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="">
+    <form action="/addTurno" method="post">
+        <div class="col-md-4">
+        <label for="titulo" class="form-label">Nombre</label>
+        <input
+            type="text"
+            class="form-control"
+            id="Nombre"
+            name="Nombre"
+            value=""
+            required
+        />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        </div>
+        <div class="col-md-4">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input
+            type="numer"
+            class="form-control"
+            id="telefono"
+            name="telefono"
+            value=""
+            required
+        />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        </div>
+        <div class="col-md-6">
+        <label for="fecha" class="form-label">Fecha</label>
+        <input type="text" class="form-control" id="fecha" name="fecha" required/>        
+        <div class="invalid-feedback">
+            Please provide a valid city.
+        </div>
+        </div>
+        <div class="col-md-3">
+        <label for="horario" class="form-label">Hora</label>
+        <input  class="text" id="hora" name="hora" required/>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+        </div>
+        <div class="w-50 text-center m-4">
+        <button class="btn btn-primary" type="submit">Guardar Turno</button>
+        </div>
+        </form>
+    </div>
+</div>

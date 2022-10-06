@@ -1,0 +1,226 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+  
+
+nav {
+    background-color: #0e0b2e;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+nav h1{
+    color: #cdd3ad;
+}
+
+
+nav .logo img{
+    height: 60px;
+    
+}
+nav .primary a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 20px 25px;
+}
+
+
+nav .primary a:hover {
+    color: black;
+    background-color: #ca8a00;
+
+}
+
+nav .desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav .desktop .primary, 
+nav .desktop .secondary {
+    display: flex;
+}
+
+.nombre {
+    margin-left: -400px;
+}
+
+.turnos {
+    margin-top: 100px;
+}
+
+.turnos h1{
+    color: #ca8a00;
+    text-align: center;
+    font-size:45px;
+}
+
+.turnos p{
+    text-align: center;
+}
+
+button {
+    margin-left: 43%;
+    
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    
+}
+
+button:hover {
+    background-color: #ca8a00;
+    box-shadow: 0px 15px 20px rgba(163, 119, 23, 0.4);
+    color: black;
+    transform: translateY(-7px);
+}
+
+.galeria{
+    margin-top: 100px;
+}
+
+.galeria h2{
+    text-decoration:underline;
+    text-align: center;
+}
+
+.imagenes-galeria img{
+    height: 200px;
+}
+
+footer {
+    background-color: rgb(255, 255, 255);
+    margin-top: 50px;
+    margin-bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+
+footer p{
+    text-align: center;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 800px;
+    margin: 100px auto;
+}
+
+td, th{
+    border: solid 1px #ccc;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #eee;
+}
+
+td:nth-child(n+3),
+th:nth-child(n+3) {
+    text-align: center;
+}
+
+tbody tr:hover {
+    background-color: #e9b74c !important;
+}
+
+thead {
+    background-color: #0e0b2e;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #03afff;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+    
+    background-size: cover;/*hace que la imaggen ocupe todo el contenedor*/
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.grid-item:hover{
+    filter: opacity(0.9);
+    -webkit-filter: opacity(0.9);
+    transform: scale(1.04);
+    -webkit-transform: scale(1.04);
+    -moz-transform: scale(1.04);
+    -ms-transform: scale(1.04);
+    -o-transform: scale(1.04);
+}
+/* auto-fill calcula el ancho del grid y crea columnas ssi es neceeesario
+auto-fit ensancha loss elementos si es necesario*/
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows:minmax(200px, auto);
+    gap: 20px;
+    padding: 20px;
+    grid-auto-flow: dense; /*para que llene los espaacios vacios*/
+}
+
+
+
+
+@media (min-with: 600px){ /*para que no see aplique en movil*/
+    .wide{
+        grid-column: span 2;
+    }
+
+    .tall{
+        grid-row: span 2;
+    }
+}
