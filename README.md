@@ -9,7 +9,7 @@
 * **Agusto Sanchez**
 
 ## Frontend realizado con:
-* **HANDELBARS**
+* **HANDLEBARS**
 
 ## Backend realizado con:
 * **Node js**
