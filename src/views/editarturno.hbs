@@ -1,0 +1,65 @@
+
+<div class="container">
+    <hr>
+    <div class="text-center m-4">
+        <h1>
+            Edita tu Turno
+        </h1>
+    </div>
+    <hr>
+<form action="/editarturno/{{ result._id }}?_method=PUT" method="POST">
+    <div class="col-md-4">
+    <label for="nombre " class="form-label">Nombre </label>
+    <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        name="nombre"
+        value= "{{ result.nombre}}"
+        required
+    />
+    <div class="valid-feedback">
+        Looks good!
+    </div>
+    </div>
+    <div class="col-md-4">
+    <label for="telefono" class="form-label">Teléfono</label>
+    <input
+        type="text"
+        class="form-control"
+        id="telefono"
+        name="telefono"
+        value="{{ result.telefono }}"
+        required
+    />
+    <div class="valid-feedback">
+        Looks good!
+    </div>
+    </div>
+    <div class="col-md-6">
+    <label for="fecha" class="form-label">Fecha</label>
+    <input 
+        type="text" 
+        class="form-control" 
+        id="fecha"
+        name="fecha"
+        value= "{{ result.fecha }}" 
+        required 
+    />
+    </div>
+    <div class="col-md-3">
+    <label for="hora" class="form-label">Hora</label>
+    <input 
+        type="text"
+        class="form-select" 
+        id="hora"
+        name="hora"
+        value="{{result.hora}}"   
+        required
+    />
+    </div>
+    <div class="col-12 text-center">
+    <button class="btn btn-primary w-50" type="submit">Modificar Turno</button>
+    </div>
+</form>
+</div>

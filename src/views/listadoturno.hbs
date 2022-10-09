@@ -1,20 +1,22 @@
 <div class="container">
     <table class="table table-dark">
         <thead>
-           
             <th>Nombre</th>
             <th>Telefono</th>
             <th>Fecha</th>
-            <th>Hora</th>
+            <th>Hora</th>  
+            <th>Borrar / Editar</th>          
         </thead>
         <tbody>
             {{#each results}}
             <tr>
                 {{!-- Para traer datos de la BS --}}
+                
                 <td>{{nombre}}</td>
                 <td>{{telefono}}</td>
                 <td>{{fecha}}</td>
                 <td>{{hora}}</td>
+                <td><a href="/delete/{{_id}}" class="btn btn-danger">Borrar</a> <a href="/editarturno/{{_id}}" class="btn btn-primary">Editar</a></td>
             </tr>
             {{/each}}
 

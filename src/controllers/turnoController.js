@@ -3,53 +3,137 @@ import mongodb from 'mongodb';
 const MongoClient = mongodb.MongoClient;
 
 
-export const turnosHome = (req, res) => {
+export const homeTurnos = (req, res) => {
     res.render('home')
 }
 
-export const listadoHome = (req, res) => {
+export const getTurno = (req, res) =>{
+    res.render('turno')
+}
 
-    MongoClient.connect(process.env.MONGOATLAS, (error, db) => {
+export const servicioHome = (req, res) => {
+    res.render('servicios')
+}
+// Obtenemos las tareas
+export const mostrarTurno = (req, res) =>{
 
-        const database = db.db(process.env.MONGOATLAS)
-
+    MongoClient.connect(process.env.MONGOATLAS, (error, db) =>{
+        const database = db.db('myFirstDatabase');
         if (error) {
-            console.log('Error en la conexión');
-        } else{
-            //console.log(`Base de Datos Conectada ${database}`);
-            database.collection('tareas').find({}).toArray((error, result) =>{
-                if(error){
-                    console.log('Error en la conexión');
+            console.log(`No estamos conectados a la Database`);
+        }else{
+            console.log(`Conexion correcta a la Database`);
+            database.collection('turnos').find({}).toArray((error, results) =>{
+                if (error) {
+                    throw error;
                 }else{
-                    res.render('tareas', { result });
+                    res.render('listadoturno', { 
+                        results
+                    })
                 }
             })
         }
     });
-} 
+};
 
-export const agregarTareas = (req, res) => {
-    
-    MongoClient.connect(process.env.MONGOLOCAL, (error, db) => {
 
-        const database = db.db(process.env.DATABASE)
-
+export const getTurnoByID = (req, res) => {
+    MongoClient.connect(process.env.MONGOATLAS, (error, db) =>{
+        const database = db.db('myFirstDatabase');
         if (error) {
-            console.log('Error en la conexión');
-        } else{
+            console.log(`No estamos conectados a la Database`);
+        }else{
+            console.log(`Conexion correcta a la Database`);
 
-            const { titulo, autor, descripcion, nivel } = req.body;
-            let dia = new Date();
-            let fechaString = dia.toLocaleDateString();
-            
-            database.collection('tareas').insertOne({titulo, autor, descripcion, nivel, fecha: fechaString}, (error, result) =>{
-                if(error){
-                    console.log('Error en la conexión');
+            let ObjectId = mongodb.ObjectId;
+            let { id } = req.params;
+
+            database.collection('turnos').findOne({_id: ObjectId(id)}, (error, result) =>{
+                if (error) {
+                    throw error;
                 }else{
-                    console.log('Dato guardado correctamente' + JSON.stringify(req.body));
-                    res.render('index');
+                    res.render('editarturno', { 
+                        result
+                    })
                 }
             })
         }
     });
 }
+
+
+//Creación de las tareas
+export const formTurno = (req, res) => {
+
+    
+    const { nombre, telefono, fecha, hora } = req.body;
+
+    MongoClient.connect(process.env.MONGOATLAS, (error, db) =>{
+        const database = db.db('myFirstDatabase'); 
+        if (error) {
+            console.log(`No estamos conectados a la Database`);
+        }else{ 
+
+        console.log(`Conexion correcta a la Database`);        
+            database.collection('turnos').insertOne({ nombre, telefono, fecha, hora }, (error, result) => {
+                if (error) {
+                    throw error;
+                }else{
+                    res.redirect('listadoturno')
+                }
+            })  
+        } 
+    }); 
+}
+
+//Actualizar Tareas
+export const updateTurnos = (req, res) =>{
+
+    MongoClient.connect(process.env.MONGOATLAS, (error, db) =>{
+        const database = db.db('myFirstDatabase');
+        if (error) {
+            console.log(`No estamos conectados a la Database`);
+        }else{
+            console.log(`Conexion correcta a la Database`);
+
+            let ObjectId = mongodb.ObjectId;
+            let {id} = req.params;
+
+            console.log(ObjectId(id));
+            
+            const { nombre, telefono, fecha, hora} = req.body;
+
+            database.collection('turnos').findOne({_id: ObjectId(id)}, {$set: {nombre, telefono, fecha, hora}} ,(error, result) => {
+                error? console.log(error.message) :
+                database.collection('turnos').replaceOne({_id: ObjectId(id)},{nombre, telefono, fecha, hora}, )
+                //console.log(req.body)
+                    res.redirect('/')
+                })
+        }
+    });
+};
+
+//Eliminar tareas
+export const borrarTurno = (req, res) => {
+
+    MongoClient.connect(process.env.MONGOATLAS, (error, db) =>{
+        const database = db.db('myFirstDatabase');
+        if (error) {
+            console.log(`No estamos conectados a la Database`);
+        }else{
+            console.log(`Conexion correcta a la Database`);
+            
+            const ObjectId = mongodb.ObjectId;
+            const { id } = req.params;
+            
+        database.collection('turnos').deleteOne({_id: ObjectId(id)}, (error, result) =>{
+                if (error) {
+                    throw error;
+                }else{
+                    res.redirect('/listadoturno')
+                }
+            })
+        }
+    });
+}
+
