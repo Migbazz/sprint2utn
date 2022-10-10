@@ -6,7 +6,7 @@
 * **Tomás Villagra**
 * **Thiago Zambonini**
 * **Rolando Marín**
-* **Agusto Sanchez**
+* **Augusto Sanchez**
 
 ## Frontend realizado con:
 * **HANDLEBARS**
