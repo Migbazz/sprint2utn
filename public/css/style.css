@@ -20,16 +20,21 @@
     -webkit-font-smoothing: antialiased;
     /* Support for Safari and Chrome. */
     text-rendering: optimizeLegibility;
-  
+
     /* Support for Firefox. */
     -moz-osx-font-smoothing: grayscale;
-  
+
     /* Support for IE. */
     font-feature-settings: 'liga';
-  }
-  
+}
 
-nav {
+
+.desktop {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
     background-color: #0e0b2e;
     color: rgb(255, 255, 255);
     width: 100%;
@@ -38,6 +43,10 @@ nav {
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
+}
+
+.nav_target {
+    display: none;
 }
 
 nav h1{
@@ -52,9 +61,11 @@ nav .logo img{
 nav .primary a {
     color: white;
     text-decoration: none;
-    display: block;
-    padding: 20px 25px;
+    display: inline-block;
+    padding: 20px 15px;
 }
+
+
 
 
 nav .primary a:hover {
@@ -63,21 +74,6 @@ nav .primary a:hover {
 
 }
 
-nav .desktop {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-nav .desktop .primary, 
-nav .desktop .secondary {
-    display: flex;
-}
-
-.nombre {
-    margin-left: -400px;
-}
 
 .turnos {
     margin-top: 100px;
@@ -94,8 +90,7 @@ nav .desktop .secondary {
 }
 
 .boton {
-    margin-left: 43%;
-    
+    width: 100%;
     padding: 1.3em 3em;
     font-size: 12px;
     text-transform: uppercase;
@@ -108,8 +103,16 @@ nav .desktop .secondary {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
     cursor: pointer;
-    outline: none;
-    
+    outline: none;    
+}
+
+.container-button{
+    display: grid;
+    place-content: center;
+}
+.container-footer{
+    display: grid;
+    place-content: center;
 }
 
 button:hover {
@@ -215,7 +218,7 @@ auto-fit ensancha loss elementos si es necesario*/
 
 
 
-@media (min-with: 600px){ /*para que no see aplique en movil*/
+@media (min-width: 600px){ /*para que no see aplique en movil*/
     .wide{
         grid-column: span 2;
     }
@@ -224,3 +227,52 @@ auto-fit ensancha loss elementos si es necesario*/
         grid-row: span 2;
     }
 }
+
+
+@media  (max-width: 600px) {
+    .desktop{
+        position: fixed;
+        top:  0;
+        padding: 0 20px;
+        height: 80px;
+        background-color: #0e0b2e;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+
+    .primary {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        top: 80px;
+        right: 0;
+        background-color: #0e0b2e;
+        display: grid;
+        height: 200px;
+        place-items: center;
+        clip-path: circle(0% at top left);
+        transition: clip-path .4s;
+    }
+
+    .primary a{
+        text-decoration: none;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+
+    }
+
+    .primary:target {
+        clip-path: circle(150% at top left);
+    }
+
+    .nav_target{
+        display: inline-block;
+        width: 20px;
+    }
+
+}
+
