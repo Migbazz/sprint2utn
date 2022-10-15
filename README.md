@@ -12,10 +12,10 @@
 * ♦️ **HANDLEBARS** 
 
 ## Backend realizado con:
-♦️ **Node js**
-♦️ **Arquitectura MVC**
-♦️ **Yarn**
-♦️ **Express**
-♦️ **MongoDB - insert - find - update - delete**
+* ♦️ **Node js**
+* ♦️ **Arquitectura MVC**
+* ♦️ **Yarn**
+* ♦️ **Express**
+* ♦️ **MongoDB - insert - find - update - delete**
 
 ## Responsive Design ✔️✔️
