@@ -2,14 +2,14 @@
 
 ## Creado por:
  
-*♦️ **Miguel Bazzarelli** 👨‍🎓
-*♦️ **Tomás Villagra** 👨‍🎓
-*♦️ **Thiago Zambonini** 👨‍🎓
-*♦️ **Rolando Marín** 👨‍🎓
-*♦️ **Augusto Sanchez** 👨‍🎓 
+* ♦️ **Miguel Bazzarelli** 👨‍🎓
+* ♦️ **Tomás Villagra** 👨‍🎓
+* ♦️ **Thiago Zambonini** 👨‍🎓
+* ♦️ **Rolando Marín** 👨‍🎓
+* ♦️ **Augusto Sanchez** 👨‍🎓 
 
 ## Frontend realizado con:
-♦️ **HANDLEBARS** 
+* ♦️ **HANDLEBARS** 
 
 ## Backend realizado con:
 ♦️ **Node js**
