@@ -45,7 +45,7 @@
     -o-border-radius: 2px;
 }
 
-.nav_target {
+.nav_label, .nav_input {
     display: none;
 }
 
@@ -215,7 +215,9 @@ auto-fit ensancha loss elementos si es necesario*/
     grid-auto-flow: dense; /*para que llene los espaacios vacios*/
 }
 
-
+.table {
+    width: 95%;
+}
 
 
 @media (min-width: 600px){ /*para que no see aplique en movil*/
@@ -253,8 +255,8 @@ auto-fit ensancha loss elementos si es necesario*/
         display: grid;
         height: 200px;
         place-items: center;
-        clip-path: circle(0% at top left);
-        transition: clip-path .4s;
+        clip-path: circle(0% at center);
+        transition: clip-path 1s ease-in-out;
     }
 
     .primary a{
@@ -265,14 +267,24 @@ auto-fit ensancha loss elementos si es necesario*/
 
     }
 
-    .primary:target {
-        clip-path: circle(150% at top left);
-    }
 
-    .nav_target{
+    .nav_label{
         display: inline-block;
         width: 20px;
+        cursor: pointer;
     }
+
+    .nav_input:checked + .primary {
+        clip-path: circle(100% at center);
+    }
+    
+    .tabla {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 200px;
+}
+
 
 }
 
