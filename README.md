@@ -17,3 +17,5 @@
 * **Yarn**
 * **Express**
 * **MongoDB - insert - find - update - delete**
+
+* **El diseño cuenta con Responsive Design**
